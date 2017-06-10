@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { View, Text, TouchableOpacity, Platform } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import { Container } from "../components/Container";
+
+import styles from "./styles";
 
 const iconPref = Platform.OS === "ios" ? "ios" : "md";
 
@@ -13,9 +16,11 @@ class ShowsList extends Component {
 
   render() {
     return (
-      <View>
-        <Text>List Screen</Text>
-      </View>
+      <Container>
+        <Text style={styles.noShows}>
+          No Radio shows listed yet. {"\n"} Check Later
+        </Text>
+      </Container>
     );
   }
 }

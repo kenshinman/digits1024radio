@@ -47,6 +47,7 @@
 		B0D78ABAAB2C46AE9E3D056F /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A60A8723B7D24CD0B7031871 /* SimpleLineIcons.ttf */; };
 		2DFD2594C4F94EE1A3A93043 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30BEC91DD19146B7B8EC4B6B /* Zocial.ttf */; };
 		164EFEBABBC0470C8DCEE4AD /* libReactNativeAudioStreaming.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51841CD3C6714C35B3286B48 /* libReactNativeAudioStreaming.a */; };
+		3306C486AC1D481B99FDDA00 /* libRCTOneSignal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74AA7B3BCD5948C6B3E59B36 /* libRCTOneSignal.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,6 +281,8 @@
 		30BEC91DD19146B7B8EC4B6B /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		DF7DCE85A2194014BE01FC56 /* ReactNativeAudioStreaming.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativeAudioStreaming.xcodeproj"; path = "../node_modules/react-native-audio-streaming/ios/ReactNativeAudioStreaming.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		51841CD3C6714C35B3286B48 /* libReactNativeAudioStreaming.a */ = {isa = PBXFileReference; name = "libReactNativeAudioStreaming.a"; path = "libReactNativeAudioStreaming.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		5E3EC9A1D0EF42B2B50CE898 /* RCTOneSignal.xcodeproj */ = {isa = PBXFileReference; name = "RCTOneSignal.xcodeproj"; path = "../node_modules/react-native-onesignal/ios/RCTOneSignal.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		74AA7B3BCD5948C6B3E59B36 /* libRCTOneSignal.a */ = {isa = PBXFileReference; name = "libRCTOneSignal.a"; path = "libRCTOneSignal.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +311,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				290DC33C274840F19BE822EA /* libRNVectorIcons.a in Frameworks */,
 				164EFEBABBC0470C8DCEE4AD /* libReactNativeAudioStreaming.a in Frameworks */,
+				3306C486AC1D481B99FDDA00 /* libRCTOneSignal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +480,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				6643B86076BE4CDC89598799 /* RNVectorIcons.xcodeproj */,
 				DF7DCE85A2194014BE01FC56 /* ReactNativeAudioStreaming.xcodeproj */,
+				5E3EC9A1D0EF42B2B50CE898 /* RCTOneSignal.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1033,11 +1038,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-audio-streaming\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-onesignal\ios\RCTOneSignal/**",
 				);
 			};
 			name = Debug;
@@ -1059,11 +1066,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-audio-streaming\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-onesignal\ios\RCTOneSignal/**",
 				);
 			};
 			name = Release;
@@ -1087,6 +1096,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-audio-streaming\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-onesignal\ios\RCTOneSignal/**",
 				);
 			};
 			name = Debug;
@@ -1109,6 +1119,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-audio-streaming\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-onesignal\ios\RCTOneSignal/**",
 				);
 			};
 			name = Release;
@@ -1139,11 +1150,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-audio-streaming\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-onesignal\ios\RCTOneSignal/**",
 				);
 			};
 			name = Debug;
@@ -1174,11 +1187,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-audio-streaming\ios/**",
+					"$(SRCROOT)\..\node_modules\react-native-onesignal\ios\RCTOneSignal/**",
 				);
 			};
 			name = Release;
@@ -1204,6 +1219,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -1228,6 +1244,7 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};

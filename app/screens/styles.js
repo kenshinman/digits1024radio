@@ -8,7 +8,8 @@ const myStyles = EStyleSheet.create({
   bg: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    width: "100%"
   },
   logoCenter: {
     width: 80,
@@ -24,6 +25,10 @@ const myStyles = EStyleSheet.create({
     color: "$white",
     fontWeight: "600",
     fontSize: 18
+  },
+  noShows: {
+    fontSize: 22,
+    textAlign: "center"
   }
 });
 

@@ -8,6 +8,8 @@ import {
   Player
 } from "react-native-audio-streaming";
 
+import OneSignal from 'react-native-onesignal';
+
 EStyleSheet.build({
   $primaryRed: "#F40301",
   $primaryBlue: "#0011c9",
@@ -27,6 +29,11 @@ ReactNativeAudioStreaming.play(url, {
 ReactNativeAudioStreaming.stop();
 
 export default class App extends Component {
+
+  componentDidMount() {
+    OneSignal.configure({})
+  }
+
   render() {
     return <RootNavigator />;
   }
