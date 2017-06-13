@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { AppRegistry, StyleSheet, Text, View } from "react-native";
+import { AppRegistry, StyleSheet, Text, View, NetInfo } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import ShowsList from "./screens/ShowsList";
 import RootNavigator from "./config/routes";
@@ -8,7 +8,7 @@ import {
   Player
 } from "react-native-audio-streaming";
 
-import OneSignal from 'react-native-onesignal';
+import OneSignal from "react-native-onesignal";
 
 EStyleSheet.build({
   $primaryRed: "#F40301",
@@ -29,10 +29,26 @@ ReactNativeAudioStreaming.play(url, {
 ReactNativeAudioStreaming.stop();
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      radioShows: [],
+      loading: true
+    };
+  }
 
   componentDidMount() {
-    OneSignal.configure({})
+    //this.getRadioShows();
+    OneSignal.configure({});
   }
+
+  // getRadioShows() {
+  //   fetch("http://localhost/digits/?json=1&post_type=radio-show")
+  //     .then(response => {
+  //       console.log(response);
+  //     })
+  //     .catch(() => alert("no network"));
+  // }
 
   render() {
     return <RootNavigator />;

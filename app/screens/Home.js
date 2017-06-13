@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { View, Text, TouchableOpacity, Platform, Image } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Platform,
+  Image,
+  StatusBar,
+  NetInfo
+} from "react-native";
 import { Container } from "../components/Container";
 import Icon from "react-native-vector-icons/Ionicons";
 import { ButtonIcon } from "../components/Icons";
@@ -7,6 +15,8 @@ import {
   ReactNativeAudioStreaming,
   Player
 } from "react-native-audio-streaming";
+
+import Offline from "./Offline";
 
 import styles from "./styles";
 
@@ -16,51 +26,62 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      playing: true
+      connection: true,
+      live: true,
+      reloadng: false
     };
   }
 
-  playRadio = () => {
-    this.setState({ playing: !this.state.playing });
-  };
+  componentWillMount() {
+    NetInfo.isConnected.fetch().then(isConnected => {
+      if (isConnected) {
+        this.setState({ connection: true });
+      } else {
+        this.setState({ connection: false });
+      }
+    });
 
-  renderRadio() {
-    if (!this.state.playing) {
-      ReactNativeAudioStreaming.pause();
-      return <Text>Play Now</Text>;
-    } else {
-      const url = "http://epsilon.shoutca.st:9139/;";
-      ReactNativeAudioStreaming.play(url, {
-        showIniOSMediaCenter: true,
-        showInAndroidNotifications: true
-      });
-      ReactNativeAudioStreaming.resume();
-      return <Player url="http://epsilon.shoutca.st:9139/;" />;
+    function handleFirstConnectivityChange(isConnected) {
+      //this.setState({ live: true });
+      NetInfo.isConnected.removeEventListener(
+        "change",
+        handleFirstConnectivityChange
+      );
     }
+    NetInfo.isConnected.addEventListener(
+      "change",
+      handleFirstConnectivityChange
+    );
+  }
+
+  reload() {
+    this.setState({ reloadng: true });
   }
 
   render() {
     return (
-      <Container>
-        <Image
-          resizeMode="cover"
-          style={styles.bg}
-          source={require("../assets/images/bg_1.jpg")}
-        >
-          <Image
-            style={styles.logoCenter}
-            source={require("../assets/images/logo.png")}
-          />
-          <TouchableOpacity style={styles.playButton} onPress={this.playRadio}>
-            <Text style={styles.playText}>Play</Text>
-          </TouchableOpacity>
+      // <Offline reload={this.reload.bind(this)} />
 
-          {/*{this.state.playing
-            ? <Player url={"http://epsilon.shoutca.st:9139/;"} />
-            : <Text>Play</Text>}*/}
-          {/*{this.renderRadio()}*/}
-          <Player url="http://epsilon.shoutca.st:9139/;" />
-        </Image>
+      <Container>
+        {this.state.connection
+          ? <Container>
+              <StatusBar
+                backgroundColor={`${styles.$iconRed}`}
+                barStyle="light-content"
+              />
+              <Image
+                resizeMode="cover"
+                style={styles.bg}
+                source={require("../assets/images/bg_1.jpg")}
+              >
+                <Image
+                  style={styles.logoCenter}
+                  source={require("../assets/images/logo.png")}
+                />
+                <Player url="http://epsilon.shoutca.st:9139/;" />
+              </Image>
+            </Container>
+          : <Offline reload={this.reload.bind(this)} />}
       </Container>
     );
   }

@@ -12,8 +12,8 @@ const myStyles = EStyleSheet.create({
     width: "100%"
   },
   logoCenter: {
-    width: 80,
-    height: 80
+    width: 150,
+    height: 150
   },
   playButton: {
     paddingHorizontal: 40,
