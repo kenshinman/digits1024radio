@@ -20,13 +20,13 @@ EStyleSheet.build({
 });
 
 const url = "http://epsilon.shoutca.st:9139/;";
-ReactNativeAudioStreaming.pause();
-ReactNativeAudioStreaming.resume();
-ReactNativeAudioStreaming.play(url, {
-  showIniOSMediaCenter: true,
-  showInAndroidNotifications: true
-});
-ReactNativeAudioStreaming.stop();
+// ReactNativeAudioStreaming.pause();
+// ReactNativeAudioStreaming.resume();
+// ReactNativeAudioStreaming.play(url, {
+//   showIniOSMediaCenter: true,
+//   showInAndroidNotifications: true
+// });
+// ReactNativeAudioStreaming.stop();
 
 export default class App extends Component {
   constructor(props) {
@@ -38,17 +38,8 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    //this.getRadioShows();
     OneSignal.configure({});
   }
-
-  // getRadioShows() {
-  //   fetch("http://localhost/digits/?json=1&post_type=radio-show")
-  //     .then(response => {
-  //       console.log(response);
-  //     })
-  //     .catch(() => alert("no network"));
-  // }
 
   render() {
     return <RootNavigator />;

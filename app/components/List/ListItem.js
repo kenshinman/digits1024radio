@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
-import styles from './styles';
-import Icon from './Icon';
+import React, { PropTypes } from "react";
+import { View, Text, TouchableHighlight } from "react-native";
+import styles from "./styles";
+import Icon from "./Icon";
 
 const ListItem = ({
   text,
@@ -10,18 +10,21 @@ const ListItem = ({
   checkmark = true,
   visible = true,
   customIcon = null,
-  iconBackground,
-}) => (
+  iconBackground
+}) =>
   <TouchableHighlight onPress={onPress} underlayColor={styles.$underlayColor}>
     <View style={styles.row}>
       <Text style={styles.text}>{text}</Text>
       {selected
-        ? <Icon iconBackground={iconBackground} checkmark={checkmark} visible={visible} />
+        ? <Icon
+            iconBackground={iconBackground}
+            checkmark={checkmark}
+            visible={visible}
+          />
         : <Icon />}
       {customIcon}
     </View>
-  </TouchableHighlight>
-);
+  </TouchableHighlight>;
 
 ListItem.propTypes = {
   text: PropTypes.string,
@@ -30,7 +33,7 @@ ListItem.propTypes = {
   checkmark: PropTypes.bool,
   visible: PropTypes.bool,
   customIcon: PropTypes.element,
-  iconBackground: PropTypes.string,
+  iconBackground: PropTypes.string
 };
 
 export default ListItem;

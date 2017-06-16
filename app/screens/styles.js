@@ -1,6 +1,6 @@
 import EStyleSheet from "react-native-extended-stylesheet";
 
-const myStyles = EStyleSheet.create({
+const styles = EStyleSheet.create({
   $iconRed: "$primaryRed",
   icon: {
     paddingLeft: 15
@@ -29,7 +29,11 @@ const myStyles = EStyleSheet.create({
   noShows: {
     fontSize: 22,
     textAlign: "center"
+  },
+  singleShowBanner: {
+    width: "100%",
+    height: "50%"
   }
 });
 
-export default myStyles;
+export default styles;
