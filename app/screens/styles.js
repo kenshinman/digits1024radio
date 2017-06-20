@@ -31,8 +31,7 @@ const styles = EStyleSheet.create({
     textAlign: "center"
   },
   singleShowBanner: {
-    width: "100%",
-    height: "50%"
+    width: "100%"
   }
 });
 

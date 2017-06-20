@@ -14,7 +14,7 @@ EStyleSheet.build({
   $primaryRed: "#F40301",
   $primaryBlue: "#0011c9",
   $bgGrey: "#F5FCFF",
-  $border: "#7e7e7e",
+  $border: "#ccc",
   $darkText: "#222222",
   $white: "#fff"
 });

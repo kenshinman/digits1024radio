@@ -6,7 +6,9 @@ import {
   Platform,
   Image,
   StatusBar,
-  NetInfo
+  NetInfo,
+  BackHandler,
+  Alert
 } from "react-native";
 import { Container } from "../components/Container";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -52,6 +54,20 @@ class Home extends Component {
       "change",
       handleFirstConnectivityChange
     );
+
+    // BackHandler.addEventListener("hardwareBackPress", () => {
+    //   Alert.alert("Quit App?", "Are you sure you want to exit App?", [
+    //     { text: "Yes", onPress: () => BackAndroid.exitApp() },
+    //     { text: "No", onPress: () => {} }
+    //   ]);
+    //   return true;
+    // });
+  }
+
+  componentWillUnmount() {
+    // BackHandler.removeEventListener("hardwareBackPress", () => {
+    //   this.props.navigation.goBack(null);
+    // });
   }
 
   reload() {

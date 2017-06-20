@@ -36,10 +36,6 @@ class ShowsList extends Component {
       .catch(() => console.log("There was an error"));
   }
 
-  // handlePress = item => {
-  //   this.props.navigation.navigate("SingleShow", { title: item.title });
-  // };
-
   render() {
     const shows = this.state.radioShows.filter(
       show => show.thumbnail_images.thumbnail
