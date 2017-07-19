@@ -56,7 +56,7 @@ const DrawerRoutes = {
       },
       navigationOptions: ({ navigation }) => ({
         drawerLabel: "Home",
-        drawerIcon: <Icon size={32} name={`${iconPref}-home`} />,
+        drawerIcon: <Icon size={26} name={`${iconPref}-home`} />,
         headerTitle: "Digits 1024",
         headerLeft: (
           <View style={styles.icon}>
@@ -78,7 +78,7 @@ const DrawerRoutes = {
       navigationOptions: ({ navigation }) => ({
         drawerLabel: "Radio Shows",
         header: () => null,
-        drawerIcon: <Icon size={32} name={`${iconPref}-list-box`} />
+        drawerIcon: <Icon size={26} name={`${iconPref}-list-box`} />
       })
     })
   }
@@ -91,7 +91,9 @@ const RootNavigator = StackNavigator(
       screen: DrawerNavigator(DrawerRoutes, {
         drawerWidth: 300,
         contentComponent: props =>
-          <ScrollView><DrawerContent {...props} /></ScrollView>
+          <ScrollView>
+            <DrawerContent {...props} />
+          </ScrollView>
       })
     },
     ...Stack

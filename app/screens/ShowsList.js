@@ -30,16 +30,16 @@ class ShowsList extends Component {
   }
 
   getRadioShows() {
-    fetch("http://digitsound.com.ng/?json=1&post_type=radio-show")
+    fetch(
+      "http://digitsound.com.ng/?json=1&post_type=radio-show&order_by=title&order=ASC&count=-1"
+    )
       .then(response => response.json())
       .then(data => this.setState({ radioShows: data.posts, loading: false }))
-      .catch(() => console.log("There was an error"));
+      .catch(error => console.log("There was an error", error));
   }
 
   render() {
-    const shows = this.state.radioShows.filter(
-      show => show.thumbnail_images.thumbnail
-    );
+    const shows = this.state.radioShows.filter(show => show.thumbnail_images);
 
     return (
       <View style={{ flex: 1 }}>
@@ -54,8 +54,8 @@ class ShowsList extends Component {
                   thumbnail
                   img={
                     item.thumbnail_images !== null ||
-                      item.thumbnail_images !== undefined ||
-                      item.thumbnail_images.length > 0
+                    item.thumbnail_images !== undefined ||
+                    item.thumbnail_images.length > 0
                       ? item.thumbnail_images.thumbnail.url
                       : "http://loremflickr.com/60/60/cat"
                   }

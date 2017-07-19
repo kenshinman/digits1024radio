@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {
   View,
+  ScrollView,
   Text,
   TouchableOpacity,
   Platform,
@@ -19,6 +20,16 @@ import {
   CardContent,
   CardAction
 } from "react-native-card-view";
+import {
+  Table,
+  TableWraper,
+  Row,
+  Rows,
+  Col,
+  Cols,
+  Cell
+} from "react-native-table-component";
+
 import styles from "./styles";
 
 const { width, height } = Dimensions.get("window");
@@ -39,8 +50,17 @@ const SingleShow = props => {
     return (" " + d).toUpperCase();
   });
 
+  const tableHead = ["Host", "Days", "Time"];
+  const tableData = [
+    [
+      custom_fields.radio_show_host,
+      days,
+      `${custom_fields.radio_show_recurring_from} - ${custom_fields.radio_show_recurring_to}`
+    ]
+  ];
+
   return (
-    <View style={{ flex: 1, backgroundColor: "#fff" }}>
+    <ScrollView style={{ flex: 1, backgroundColor: "#fff" }}>
       <ResponsiveImage
         initWidth={width}
         initHeight={width}
@@ -52,18 +72,28 @@ const SingleShow = props => {
         <HTMLView value={`<h3>${title}</h3>`} stylesheet={lStyle} />
         <HTMLView value={`<h5>Details:</h5>`} stylesheet={lStyle} />
 
+        <Table borderStyle={lStyle.borderStyle}>
+          <Row
+            data={tableHead}
+            style={lStyle.head}
+            textStyle={lStyle.heading}
+          />
+          <Rows data={tableData} style={lStyle.row} textStyle={lStyle.text} />
+        </Table>
+
         <View style={lStyle.subtitleWrap}>
           <Separator />
-          <ListItemFull text={`Hosts: ${custom_fields.radio_show_host}`} />
+          {/*<ListItemFull text={`Hosts: ${custom_fields.radio_show_host}`} />
           <ListItemFull
             text={`Aired On: ${days} | Time: ${custom_fields.radio_show_recurring_from} - ${custom_fields.radio_show_recurring_to} `}
           />
-          <Separator />
+          <Separator />*/}
         </View>
-        <HTMLView value={`<h5>Description:</h5>`} stylesheet={lStyle} />
+        <Separator />
+        <HTMLView value={`<h5>Bio:</h5>`} stylesheet={lStyle} />
         <HTMLView value={content} stylesheet={lStyle} />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -90,6 +120,27 @@ const lStyle = EStyleSheet.create({
   },
   strong: {
     fontWeight: "bold"
+  },
+  head: {
+    height: 40,
+    backgroundColor: "#f1f8ff",
+    paddingHorizontal: 5
+  },
+  text: {
+    marginLeft: 5
+  },
+  row: {
+    height: 60,
+    paddingHorizontal: 5
+  },
+  heading: {
+    fontWeight: "600",
+    fontSize: 18,
+    color: "#111"
+  },
+  borderStyle: {
+    borderWidth: 1,
+    borderColor: "#ccc"
   }
 });
 

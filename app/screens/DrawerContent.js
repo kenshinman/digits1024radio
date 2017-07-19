@@ -109,15 +109,15 @@ const DrawerContent = props =>
         <Icon color="#fff" name="twitter" size={24} />
       </TouchableOpacity>
       <TouchableOpacity
-        style={[styles.iconWrap, { backgroundColor: "#E62117" }]}
+        style={[styles.iconWrap, { backgroundColor: "#fb3958" }]}
         onPress={() => {
           props.navigation.navigate("DrawerClose");
           Linking.openURL(
-            "http://www.youtube.com/channel/UCr685FMs8pmp3twnkyoDJSQ"
+            "https://www.instagram.com/digits1024/"
           );
         }}
       >
-        <Icon color="#fff" name="youtube" size={24} />
+        <Icon color="#fff" name="instagram" size={24} />
       </TouchableOpacity>
 
     </View>

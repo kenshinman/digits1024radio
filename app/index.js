@@ -20,13 +20,13 @@ EStyleSheet.build({
 });
 
 const url = "http://epsilon.shoutca.st:9139/;";
-// ReactNativeAudioStreaming.pause();
-// ReactNativeAudioStreaming.resume();
-// ReactNativeAudioStreaming.play(url, {
-//   showIniOSMediaCenter: true,
-//   showInAndroidNotifications: true
-// });
-// ReactNativeAudioStreaming.stop();
+ReactNativeAudioStreaming.pause();
+ReactNativeAudioStreaming.resume();
+ReactNativeAudioStreaming.play(url, {
+  showIniOSMediaCenter: true,
+  showInAndroidNotifications: true
+});
+ReactNativeAudioStreaming.stop();
 
 export default class App extends Component {
   constructor(props) {
